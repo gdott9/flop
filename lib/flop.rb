@@ -1,5 +1,14 @@
-require "flop/version"
+require 'flop/version'
+
+require 'flop/feature'
+require 'flop/repository/memory'
 
 module Flop
-  # Your code goes here...
+  class << self
+    attr_accessor :repo
+
+    def [](feature)
+      Flop::Feature.new(feature)
+    end
+  end
 end
