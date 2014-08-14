@@ -24,10 +24,15 @@ First, you need to configure where to store everything by setting a repository.
 
 Available repositories are :
 - `Flop::Repository::Memory`
+- `Flop::Repository::Redis`
 
 To set the repository, create a new object and affect it to `Flop.repo`.
 ```ruby
 Flop.repo = Flop::Repository::Memory.new
+
+require 'redis'
+
+Flop.repo = Flop::Repository::Redis.new(Redis.new)
 ```
 
 ### Features

@@ -17,6 +17,7 @@ module Flop
 
     def set(value)
       repo.set(name, value)
+      value
     end
 
     def activate

@@ -2,6 +2,7 @@ require 'flop/version'
 
 require 'flop/feature'
 require 'flop/repository/memory'
+require 'flop/repository/redis'
 
 module Flop
   class << self
