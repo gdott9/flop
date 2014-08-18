@@ -6,7 +6,11 @@ require 'flop/repository/redis'
 
 module Flop
   class << self
-    attr_accessor :repo
+    attr_writer :repo
+
+    def repo
+      @repo ||= Flop::Repository::Memory.new
+    end
 
     def [](feature)
       Flop::Feature.new(feature)
