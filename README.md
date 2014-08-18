@@ -1,6 +1,9 @@
 # Flop
 
-A simple ruby feature flipper.
+Flop is a feature flipper gem for ruby.
+
+Toggle features on and off easily and store feature states in memory or in redis
+with the different repositories.
 
 ## Installation
 
@@ -16,9 +19,7 @@ Or install it yourself as:
 
     $ gem install flop
 
-## Usage
-
-### Repositories
+## Repositories
 
 First, you need to configure where to store everything by setting a repository.
 
@@ -35,7 +36,20 @@ require 'redis'
 Flop.repo = Flop::Repository::Redis.new(Redis.new)
 ```
 
-### Features
+### Redis
+
+The `Redis` repository requires a `Redis` connection as its first parameter.
+The default namespace can be passed as a second parameter.
+
+The default namespace can be a string, an array or a proc.
+
+```ruby
+Flop::Repository::Redis.new(Redis.new, "flop:namespace")
+Flop::Repository::Redis.new(Redis.new, [:flop, :namespace])
+Flop::Repository::Redis.new(Redis.new, -> { ENV['NAMESPACE'] })
+```
+
+## Features
 
 To access a feature, you can call the Flop[] method or create a new `Flop::Feature` object.
 ```ruby
