@@ -17,7 +17,11 @@ module Flop
       private
 
       def key(name)
-        [@namespace, name].join(':')
+        [namespace, name].flatten.join(':')
+      end
+
+      def namespace
+        @namespace.is_a?(Proc) ? @namespace.call : @namespace
       end
     end
   end
