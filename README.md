@@ -26,6 +26,7 @@ First, you need to configure where to store everything by setting a repository.
 Available repositories are :
 - `Flop::Repository::Memory`
 - `Flop::Repository::Redis`
+- `Flop::Repository::Yaml`
 
 To set the repository, create a new object and affect it to `Flop.repo`.
 ```ruby
@@ -47,6 +48,15 @@ The default namespace can be a string, an array or a proc.
 Flop::Repository::Redis.new(Redis.new, "flop:namespace")
 Flop::Repository::Redis.new(Redis.new, [:flop, :namespace])
 Flop::Repository::Redis.new(Redis.new, -> { ENV['NAMESPACE'] })
+```
+
+### YAML
+
+The `Yaml` repository requires a yaml file as its first parameter.
+This repository is read-only so methods like `activate`, `toggle`, ... can not be used.
+
+```ruby
+Flop::Repository::Yaml.new('my_file.yml')
 ```
 
 ## Features

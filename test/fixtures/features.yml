@@ -1,0 +1,6 @@
+---
+flop:
+  blog: true
+  wiki: false
+custom_namespace:
+  chat: true
