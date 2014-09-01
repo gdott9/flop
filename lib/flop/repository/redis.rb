@@ -1,6 +1,6 @@
 module Flop
-  module Repository
-    class Redis
+  class Repository
+    class Redis < Flop::Repository
       def initialize(redis, namespace = '')
         @redis = redis
         @namespace = namespace

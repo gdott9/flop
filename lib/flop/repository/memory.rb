@@ -1,6 +1,6 @@
 module Flop
-  module Repository
-    class Memory
+  class Repository
+    class Memory < Flop::Repository
       def initialize
         @features = Hash.new(false)
       end
