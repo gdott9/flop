@@ -1,5 +1,7 @@
 # Flop
 
+[![Build Status](https://travis-ci.org/gdott9/flop.svg?branch=master)](https://travis-ci.org/gdott9/flop)
+
 Flop is a feature flipper gem for ruby.
 
 Toggle features on and off easily and store feature states in memory or in redis
